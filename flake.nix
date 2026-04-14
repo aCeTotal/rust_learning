@@ -25,6 +25,15 @@
         buildInputs = [
           rust
           pkgs.cargo-watch
+          pkgs.wayland
+          pkgs.libxkbcommon
+          pkgs.vulkan-loader
+        ];
+
+        LD_LIBRARY_PATH = pkgs.lib.makeLibraryPath [
+          pkgs.wayland
+          pkgs.libxkbcommon
+          pkgs.vulkan-loader
         ];
 
         shellHook = ''
